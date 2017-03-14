@@ -2,7 +2,7 @@
 
 A Ruby API client library.
 
-### Installation
+## Installation
 
 Add this line to your application's Gemfile:
 
@@ -19,7 +19,7 @@ Or install it yourself as:
     $ gem install leapfrog
 
 
-### Usage
+## Usage
 
 Require the gem.
 ```ruby
@@ -42,13 +42,13 @@ The response will be a Hash with two keys containing the propensity and ranking 
 ```
 
 
-### Testing
+## Testing
 
 After cloning this repo, run `rspec`, or `rake` to run the tests.
 
 
 
-### License
+## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
