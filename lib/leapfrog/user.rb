@@ -4,7 +4,6 @@ require 'httparty'
 module Leapfrog
   class User
     include HTTParty
-    # base_uri "http://echo.jsontest.com/"
 
     attr_reader :name, :income, :zipcode, :age
 
@@ -17,8 +16,12 @@ module Leapfrog
 
     def get_ranking(propensity, ranking)
       uri = "http://echo.jsontest.com/propensity/#{propensity}/ranking/#{ranking}"
-      response = self.class.get(uri)
-      response.parsed_response
+      response = HTTParty.get(uri, timeout: 10)
+      if response.code == 200
+        response.parsed_response
+      else
+        "ERROR #{response.code}"
+      end
     end
 
   end
