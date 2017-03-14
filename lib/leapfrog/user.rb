@@ -14,9 +14,9 @@ module Leapfrog
       @age = age
     end
 
-    def get_ranking(propensity, ranking)
-      uri = "http://echo.jsontest.com/propensity/#{propensity}/ranking/#{ranking}"
-      response = HTTParty.get(uri, timeout: 10)
+    def get_ranking(url)
+      # if this were actually using income, zipcode, and age to obtain a ranking, they could be accessed here from user's parameters and passed along to the url via a string such as: income=50000&amp;zipcode=60201&amp;age=35
+      response = HTTParty.get(url, timeout: 10)
       if response.code == 200
         response.parsed_response
       else
