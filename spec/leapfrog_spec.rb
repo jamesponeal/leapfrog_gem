@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Leapfrog do
 
   let(:user) { Leapfrog::User.new("Kermit", 50000, "60201", 35) }
+  url = "http://echo.jsontest.com/propensity/0.26532/ranking/C"
 
   it 'has a version number' do
     expect(Leapfrog::VERSION).not_to be nil
@@ -25,20 +26,20 @@ describe Leapfrog do
   end
 
   it "should return a Hash" do
-    expect(user.get_ranking("0.26532","C")).to be_kind_of(Hash)
+    expect(user.get_ranking(url)).to be_kind_of(Hash)
   end
 
   it "must get a propensity and ranking response" do
-    expect(user.get_ranking("0.26532","C")).to eq({"propensity"=>"0.26532", "ranking"=>"C"})
+    expect(user.get_ranking(url)).to eq({"propensity"=>"0.26532", "ranking"=>"C"})
   end
 
   it "should return the correct propensity" do
-    response = user.get_ranking("0.26532","C")
+    response = user.get_ranking(url)
     expect(response["propensity"]).to eq("0.26532")
   end
 
   it "should return the correct ranking" do
-    response = user.get_ranking("0.26532","C")
+    response = user.get_ranking(url)
     expect(response["ranking"]).to eq("C")
   end
 
