@@ -2,7 +2,7 @@
 
 A Ruby API client library.
 
-## Installation
+### Installation
 
 Add this line to your application's Gemfile:
 
@@ -18,13 +18,37 @@ Or install it yourself as:
 
     $ gem install leapfrog
 
-## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+### Usage
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Require the gem.
+```ruby
+require 'leapfrog'
+```
 
-## License
+Create a new user and pass in the user's name, income, zipcode, and age:
+```ruby
+kermit = Leapfrog::User.new("Kermit", 50000, "60201", 35)
+```
+
+Call the "get_ranking" method and pass in the url of the ranking to obtain the user's ranking. Example:
+```ruby
+kermit.get_score(http://not_real.com/customer_scoring)
+```
+
+The response will be a Hash with two keys containing the propensity and ranking for that user:
+```ruby
+{"propensity"=>"0.26532", "ranking"=>"C"}
+```
+
+
+### Testing
+
+After cloning this repo, run `rspec`, or `rake` to run the tests.
+
+
+
+### License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
